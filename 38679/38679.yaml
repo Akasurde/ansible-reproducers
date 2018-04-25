@@ -1,0 +1,38 @@
+---
+- name: Reproducer for 38679
+  gather_facts: no
+  vars_files:
+    - vcenter_vars.yml
+  vars:
+    ansible_python_interpreter: "/usr/bin/env python3"
+  hosts: localhost
+  tasks:
+    - set_fact:
+        vm_name: "VM_{{ 10000 | random }}"
+    - name: deploy vm with 3 disks and 1 CDROM
+      vmware_guest:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no
+        datacenter: DC2
+        esxi_hostname: '10.76.33.235'
+        state: present
+        folder: /Site2/DC2/vm
+        name: "{{ vm_name }}"
+        networks:
+          - name: "dportgroup43"
+        disk:
+          - size: 10mb
+            datastore: datastore4
+          - size: 11mb
+            datastore: datastore4
+          - size: 12mb
+            datastore: datastore4
+        guest_id: rhel7_64guest
+        cdrom:
+          type: iso
+          iso_path: "[datastore4] livecd.iso"
+        hardware:
+          num_cpus: 1
+          memory_mb: 512
