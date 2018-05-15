@@ -1,0 +1,10 @@
+---
+- vcenter_server: XX.XX.XX.XX
+- vcenter_user: administrator@vsphere.local
+- vcenter_pass: Esxi@123$%
+- folder: /Site2/DC2/vm
+- datacenter: DC2
+- esxi_hostname: 'XX.XX.XX.XX'
+- guest_id: rhel7_64Guest
+- datastore: datastore2
+- vm_name: VM_0001

@@ -1,0 +1,240 @@
+# ansible-playbook disk_fact.yml -vv
+ansible-playbook 2.6.0 (devel 9c0825a4cf) last updated 2018/05/15 10:22:17 (GMT +550)
+  config file = None
+  configured module search path = ['/Users/akasurde/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /Volumes/data/src/ansible/lib/ansible
+  executable location = /Volumes/data/src/ansible/bin/ansible-playbook
+  python version = 3.6.4 (default, Dec 19 2017, 15:24:51) [GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2)]
+No config file found; using defaults
+ [WARNING]: Unable to parse /etc/ansible/hosts as an inventory source
+
+ [WARNING]: No inventory was parsed, only implicit localhost is available
+
+ [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAYBOOK: disk_fact.yml ********************************************************************************************************
+1 plays in disk_fact.yml
+
+PLAY [Add disk to an existing virtual machine] *********************************************************************************
+META: ran handlers
+
+TASK [Deploy a new vm VM_0001] *************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:8
+changed: [localhost] => {"changed": true, "instance": {"annotation": "", "current_snapshot": null, "customvalues": {}, "guest_consolidation_needed": false, "guest_question": null, "guest_tools_status": "guestToolsNotRunning", "guest_tools_version": "0", "hw_cores_per_socket": 1, "hw_datastores": ["datastore2"], "hw_esxi_host": "XX.XX.XX.XX", "hw_files": ["[datastore2] VM_0001/VM_0001.vmx", "[datastore2] VM_0001/VM_0001.vmsd", "[datastore2] VM_0001/VM_0001.vmdk", "[datastore2] VM_0001/VM_0001_1.vmdk", "[datastore2] VM_0001/VM_0001_2.vmdk"], "hw_folder": "/Site2/DC2/vm", "hw_guest_full_name": null, "hw_guest_ha_state": null, "hw_guest_id": null, "hw_interfaces": [], "hw_is_template": false, "hw_memtotal_mb": 512, "hw_name": "VM_0001", "hw_power_status": "poweredOff", "hw_processor_count": 1, "hw_product_uuid": "422f7dc6-dec1-f141-9ae7-af48fd23e28c", "hw_version": "vmx-13", "instance_uuid": "502f7e4e-e2f1-5b98-39cd-ffd0480aacd4", "ipv4": null, "ipv6": null, "module_hw": true, "snapshots": []}}
+
+TASK [Check if virtual machine VM_0001 is deployed] ****************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:32
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Getting information about VM VM_0001] ************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:37
+ok: [localhost] => {"changed": false, "guest_disk_facts": {"0": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 10485760, "capacity_in_kb": 10240, "controller_key": 1000, "key": 2000, "label": "Hard disk 1", "summary": "10,240 KB", "unit_number": 0}, "1": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001_1.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 11534336, "capacity_in_kb": 11264, "controller_key": 1000, "key": 2001, "label": "Hard disk 2", "summary": "11,264 KB", "unit_number": 1}, "2": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001_2.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 12582912, "capacity_in_kb": 12288, "controller_key": 1000, "key": 2002, "label": "Hard disk 3", "summary": "12,288 KB", "unit_number": 2}}}
+
+TASK [debug] *******************************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:47
+ok: [localhost] => (item=None) => {
+    "msg": {
+        "backing_datastore": "datastore2",
+        "backing_disk_mode": "persistent",
+        "backing_eagerlyscrub": false,
+        "backing_filename": "[datastore2] VM_0001/VM_0001.vmdk",
+        "backing_thinprovisioned": false,
+        "backing_writethrough": false,
+        "capacity_in_bytes": 10485760,
+        "capacity_in_kb": 10240,
+        "controller_key": 1000,
+        "key": 2000,
+        "label": "Hard disk 1",
+        "summary": "10,240 KB",
+        "unit_number": 0
+    }
+}
+ok: [localhost] => (item=None) => {
+    "msg": {
+        "backing_datastore": "datastore2",
+        "backing_disk_mode": "persistent",
+        "backing_eagerlyscrub": false,
+        "backing_filename": "[datastore2] VM_0001/VM_0001_1.vmdk",
+        "backing_thinprovisioned": false,
+        "backing_writethrough": false,
+        "capacity_in_bytes": 11534336,
+        "capacity_in_kb": 11264,
+        "controller_key": 1000,
+        "key": 2001,
+        "label": "Hard disk 2",
+        "summary": "11,264 KB",
+        "unit_number": 1
+    }
+}
+ok: [localhost] => (item=None) => {
+    "msg": {
+        "backing_datastore": "datastore2",
+        "backing_disk_mode": "persistent",
+        "backing_eagerlyscrub": false,
+        "backing_filename": "[datastore2] VM_0001/VM_0001_2.vmdk",
+        "backing_thinprovisioned": false,
+        "backing_writethrough": false,
+        "capacity_in_bytes": 12582912,
+        "capacity_in_kb": 12288,
+        "controller_key": 1000,
+        "key": 2002,
+        "label": "Hard disk 3",
+        "summary": "12,288 KB",
+        "unit_number": 2
+    }
+}
+
+TASK [set_fact] ****************************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:51
+ok: [localhost] => (item={'key': '0', 'value': {'key': 2000, 'label': 'Hard disk 1', 'summary': '10,240 KB', 'backing_filename': '[datastore2] VM_0001/VM_0001.vmdk', 'backing_datastore': 'datastore2', 'backing_disk_mode': 'persistent', 'backing_writethrough': False, 'backing_thinprovisioned': False, 'backing_eagerlyscrub': False, 'controller_key': 1000, 'unit_number': 0, 'capacity_in_kb': 10240, 'capacity_in_bytes': 10485760}}) => {"ansible_facts": {"disk": [{"datastore": "datastore2", "size_kb": 10240}]}, "changed": false, "item": {"key": "0", "value": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 10485760, "capacity_in_kb": 10240, "controller_key": 1000, "key": 2000, "label": "Hard disk 1", "summary": "10,240 KB", "unit_number": 0}}}
+ok: [localhost] => (item={'key': '1', 'value': {'key': 2001, 'label': 'Hard disk 2', 'summary': '11,264 KB', 'backing_filename': '[datastore2] VM_0001/VM_0001_1.vmdk', 'backing_datastore': 'datastore2', 'backing_disk_mode': 'persistent', 'backing_writethrough': False, 'backing_thinprovisioned': False, 'backing_eagerlyscrub': False, 'controller_key': 1000, 'unit_number': 1, 'capacity_in_kb': 11264, 'capacity_in_bytes': 11534336}}) => {"ansible_facts": {"disk": [{"datastore": "datastore2", "size_kb": 10240}, {"datastore": "datastore2", "size_kb": 11264}]}, "changed": false, "item": {"key": "1", "value": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001_1.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 11534336, "capacity_in_kb": 11264, "controller_key": 1000, "key": 2001, "label": "Hard disk 2", "summary": "11,264 KB", "unit_number": 1}}}
+ok: [localhost] => (item={'key': '2', 'value': {'key': 2002, 'label': 'Hard disk 3', 'summary': '12,288 KB', 'backing_filename': '[datastore2] VM_0001/VM_0001_2.vmdk', 'backing_datastore': 'datastore2', 'backing_disk_mode': 'persistent', 'backing_writethrough': False, 'backing_thinprovisioned': False, 'backing_eagerlyscrub': False, 'controller_key': 1000, 'unit_number': 2, 'capacity_in_kb': 12288, 'capacity_in_bytes': 12582912}}) => {"ansible_facts": {"disk": [{"datastore": "datastore2", "size_kb": 10240}, {"datastore": "datastore2", "size_kb": 11264}, {"datastore": "datastore2", "size_kb": 12288}]}, "changed": false, "item": {"key": "2", "value": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001_2.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 12582912, "capacity_in_kb": 12288, "controller_key": 1000, "key": 2002, "label": "Hard disk 3", "summary": "12,288 KB", "unit_number": 2}}}
+
+TASK [debug] *******************************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:55
+ok: [localhost] => {
+    "disk": [
+        {
+            "datastore": "datastore2",
+            "size_kb": 10240
+        },
+        {
+            "datastore": "datastore2",
+            "size_kb": 11264
+        },
+        {
+            "datastore": "datastore2",
+            "size_kb": 12288
+        }
+    ]
+}
+
+TASK [set_fact] ****************************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:58
+ok: [localhost] => {"ansible_facts": {"new_disk": [{"datastore": "datastore2", "size_kb": 10240}, {"datastore": "datastore2", "size_kb": 11264}, {"datastore": "datastore2", "size_kb": 12288}, {"datastore": "datastore2", "size_kb": "21504"}]}, "changed": false}
+
+TASK [debug] *******************************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:61
+ok: [localhost] => {
+    "new_disk": [
+        {
+            "datastore": "datastore2",
+            "size_kb": 10240
+        },
+        {
+            "datastore": "datastore2",
+            "size_kb": 11264
+        },
+        {
+            "datastore": "datastore2",
+            "size_kb": 12288
+        },
+        {
+            "datastore": "datastore2",
+            "size_kb": "21504"
+        }
+    ]
+}
+
+TASK [pause] *******************************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:64
+[pause]
+Press enter to continue:
+
+ok: [localhost] => {"changed": false, "delta": 22, "echo": true, "rc": 0, "start": "2018-05-15 13:23:19.477501", "stderr": "", "stdout": "Paused for 0.38 minutes", "stop": "2018-05-15 13:23:42.291802", "user_input": ""}
+
+TASK [Adding new disk to existing VM VM_0001] **********************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:66
+changed: [localhost] => {"changed": true, "instance": {"annotation": "", "current_snapshot": null, "customvalues": {}, "guest_consolidation_needed": false, "guest_question": null, "guest_tools_status": "guestToolsNotRunning", "guest_tools_version": "0", "hw_cores_per_socket": 1, "hw_datastores": ["datastore2"], "hw_esxi_host": "XX.XX.XX.XX", "hw_files": ["[datastore2] VM_0001/VM_0001.vmx", "[datastore2] VM_0001/VM_0001.vmsd", "[datastore2] VM_0001/VM_0001.vmdk", "[datastore2] VM_0001/VM_0001_1.vmdk", "[datastore2] VM_0001/VM_0001_2.vmdk", "[datastore2] VM_0001/VM_0001_3.vmdk"], "hw_folder": "/Site2/DC2/vm", "hw_guest_full_name": null, "hw_guest_ha_state": null, "hw_guest_id": null, "hw_interfaces": [], "hw_is_template": false, "hw_memtotal_mb": 512, "hw_name": "VM_0001", "hw_power_status": "poweredOff", "hw_processor_count": 1, "hw_product_uuid": "422f7dc6-dec1-f141-9ae7-af48fd23e28c", "hw_version": "vmx-13", "instance_uuid": "502f7e4e-e2f1-5b98-39cd-ffd0480aacd4", "ipv4": null, "ipv6": null, "module_hw": true, "snapshots": []}}
+
+TASK [Check if disk is added] **************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:80
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Getting information about new disk in VM VM_0001] ************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:85
+ok: [localhost] => {"changed": false, "guest_disk_facts": {"0": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 10485760, "capacity_in_kb": 10240, "controller_key": 1000, "key": 2000, "label": "Hard disk 1", "summary": "10,240 KB", "unit_number": 0}, "1": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001_1.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 11534336, "capacity_in_kb": 11264, "controller_key": 1000, "key": 2001, "label": "Hard disk 2", "summary": "11,264 KB", "unit_number": 1}, "2": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001_2.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 12582912, "capacity_in_kb": 12288, "controller_key": 1000, "key": 2002, "label": "Hard disk 3", "summary": "12,288 KB", "unit_number": 2}, "3": {"backing_datastore": "datastore2", "backing_disk_mode": "persistent", "backing_eagerlyscrub": false, "backing_filename": "[datastore2] VM_0001/VM_0001_3.vmdk", "backing_thinprovisioned": false, "backing_writethrough": false, "capacity_in_bytes": 22020096, "capacity_in_kb": 21504, "controller_key": 1000, "key": 2003, "label": "Hard disk 4", "summary": "21,504 KB", "unit_number": 3}}}
+
+TASK [debug] *******************************************************************************************************************
+task path: /Volumes/data/src/ansible-reproducers/36026/disk_fact.yml:95
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "guest_disk_facts": {
+            "0": {
+                "backing_datastore": "datastore2",
+                "backing_disk_mode": "persistent",
+                "backing_eagerlyscrub": false,
+                "backing_filename": "[datastore2] VM_0001/VM_0001.vmdk",
+                "backing_thinprovisioned": false,
+                "backing_writethrough": false,
+                "capacity_in_bytes": 10485760,
+                "capacity_in_kb": 10240,
+                "controller_key": 1000,
+                "key": 2000,
+                "label": "Hard disk 1",
+                "summary": "10,240 KB",
+                "unit_number": 0
+            },
+            "1": {
+                "backing_datastore": "datastore2",
+                "backing_disk_mode": "persistent",
+                "backing_eagerlyscrub": false,
+                "backing_filename": "[datastore2] VM_0001/VM_0001_1.vmdk",
+                "backing_thinprovisioned": false,
+                "backing_writethrough": false,
+                "capacity_in_bytes": 11534336,
+                "capacity_in_kb": 11264,
+                "controller_key": 1000,
+                "key": 2001,
+                "label": "Hard disk 2",
+                "summary": "11,264 KB",
+                "unit_number": 1
+            },
+            "2": {
+                "backing_datastore": "datastore2",
+                "backing_disk_mode": "persistent",
+                "backing_eagerlyscrub": false,
+                "backing_filename": "[datastore2] VM_0001/VM_0001_2.vmdk",
+                "backing_thinprovisioned": false,
+                "backing_writethrough": false,
+                "capacity_in_bytes": 12582912,
+                "capacity_in_kb": 12288,
+                "controller_key": 1000,
+                "key": 2002,
+                "label": "Hard disk 3",
+                "summary": "12,288 KB",
+                "unit_number": 2
+            },
+            "3": {
+                "backing_datastore": "datastore2",
+                "backing_disk_mode": "persistent",
+                "backing_eagerlyscrub": false,
+                "backing_filename": "[datastore2] VM_0001/VM_0001_3.vmdk",
+                "backing_thinprovisioned": false,
+                "backing_writethrough": false,
+                "capacity_in_bytes": 22020096,
+                "capacity_in_kb": 21504,
+                "controller_key": 1000,
+                "key": 2003,
+                "label": "Hard disk 4",
+                "summary": "21,504 KB",
+                "unit_number": 3
+            }
+        }
+    }
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP *********************************************************************************************************************
+localhost                  : ok=13   changed=2    unreachable=0    failed=0
+

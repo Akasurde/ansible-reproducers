@@ -1,0 +1,96 @@
+---
+- name: Add disk to an existing virtual machine
+  gather_facts: False
+  vars_files:
+    - vcenter_vars.yml
+  hosts: localhost
+  tasks:
+    - name: "Deploy a new vm {{ vm_name }}"
+      vmware_guest:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: False
+        datacenter: "{{ datacenter }}"
+        esxi_hostname: "{{ esxi_hostname }}"
+        state: present
+        folder: "{{ folder }}"
+        name: "{{ vm_name }}"
+        guest_id: rhel7_64Guest
+        hardware:
+          num_cpus: 1
+          memory_mb: 512
+        disk:
+          - size_mb: 10
+            autoselect_datastore: True
+          - size_mb: 11
+            autoselect_datastore: True
+          - size_mb: 12
+            autoselect_datastore: True
+      register: new_vm_deploy
+
+    - name: "Check if virtual machine {{ vm_name }} is deployed"
+      assert:
+        that:
+          - new_vm_deploy.changed
+
+    - name: "Getting information about VM {{ vm_name }}" 
+      vmware_guest_disk_facts:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        name: "{{ vm_name }}"
+      register: no_vm_result
+
+    - debug:
+        msg: "{{ item.value }}"
+      with_dict: "{{ no_vm_result.guest_disk_facts }}"
+
+    - set_fact:
+        disk: "{{ disk | default([]) + [{ 'datastore' : item.value.backing_datastore, 'size_kb': item.value.capacity_in_kb }] }}"
+      with_dict: "{{ no_vm_result.guest_disk_facts }}"
+
+    - debug:
+        var: disk
+
+    - set_fact:
+        new_disk: "{{ disk + [{ 'datastore': datastore, 'size_kb': '21504'}] }}"
+
+    - debug:
+        var: new_disk
+
+    - pause:
+
+    - name: "Adding new disk to existing VM {{ vm_name }}"
+      vmware_guest:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no
+        datacenter: DC2
+        esxi_hostname: "{{ esxi_hostname }}"
+        state: present
+        folder: "{{ folder }}"
+        name: "{{ vm_name }}"
+        disk: "{{ new_disk }}"
+      register: new_disk_added
+
+    - name: Check if disk is added
+      assert:
+        that:
+          - new_disk_added.changed
+
+    - name: "Getting information about new disk in VM {{ vm_name }}" 
+      vmware_guest_disk_facts:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        name: "{{ vm_name }}"
+      register: disk_vm_result
+
+    - debug:
+        msg: "{{ disk_vm_result }}"
