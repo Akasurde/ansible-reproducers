@@ -1,0 +1,32 @@
+# govc find / 
+/
+/DC1
+/DC2
+/DC2/vm
+/DC2/host
+/DC2/datastore
+/DC2/network
+/DC2/network/VM Network
+/DC2/network/DVS2-DVUplinks-305
+/DC2/network/NetworkA
+/DC2/network/NetworkC
+/DC2/network/DVS2
+/DC2/datastore/datastore1
+/DC2/datastore/datastore2
+/DC2/host/xx.76.33.208
+/DC2/host/xx.76.33.208/Resources
+/DC2/host/xx.76.33.208/xx.76.33.208
+/DC1/vm
+/DC1/host
+/DC1/datastore
+/DC1/network
+/DC1/network/VM Network
+/DC1/network/DVS1-DVUplinks-301
+/DC1/network/NetworkA
+/DC1/network/NetworkB
+/DC1/network/DVS1
+/DC1/datastore/datastore3
+/DC1/host/xx.76.33.200
+/DC1/host/xx.76.33.200/Resources
+/DC1/host/xx.76.33.200/xx.76.33.200
+/DC2/vm/TestDC2

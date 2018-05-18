@@ -1,0 +1,99 @@
+ansible-playbook new_vm.yml -vvv
+ansible-playbook 2.5.2 (stable25-38955 df72a1d644) last updated 2018/05/18 11:32:59 (GMT +550)
+  config file = None
+  configured module search path = ['/Users/akasurde/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /Volumes/data/src/ansible/lib/ansible
+  executable location = /Volumes/data/src/ansible/bin/ansible-playbook
+  python version = 3.6.4 (default, Dec 19 2017, 15:24:51) [GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2)]
+No config file found; using defaults
+ [WARNING]: Unable to parse /etc/ansible/hosts as an inventory source
+
+ [WARNING]: No inventory was parsed, only implicit localhost is available
+
+ [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAYBOOK: new_vm.yml ***********************************************************************************************************
+1 plays in new_vm.yml
+Read vars_file 'vcenter_vars.yml'
+Read vars_file 'vcenter_vars.yml'
+
+PLAY [Sample] ******************************************************************************************************************
+META: ran handlers
+Read vars_file 'vcenter_vars.yml'
+
+TASK [set_fact] ****************************************************************************************************************
+task path: /Volumes/data/src/ansible/playbooks/vmware_related/new_vm.yml:10
+ok: [localhost] => {
+    "ansible_facts": {
+        "datacenter": "DC1",
+        "vm_name": "TestDC1"
+    },
+    "changed": false
+}
+Read vars_file 'vcenter_vars.yml'
+
+TASK [deploy vm] ***************************************************************************************************************
+task path: /Volumes/data/src/ansible/playbooks/vmware_related/new_vm.yml:14
+Using module file /Volumes/data/src/ansible/lib/ansible/modules/cloud/vmware/vmware_guest.py
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: akasurde
+<127.0.0.1> EXEC /bin/sh -c 'echo ~akasurde && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /Users/akasurde/.ansible/tmp/ansible-tmp-1526630002.026885-149096809747511 `" && echo ansible-tmp-1526630002.026885-149096809747511="` echo /Users/akasurde/.ansible/tmp/ansible-tmp-1526630002.026885-149096809747511 `" ) && sleep 0'
+<127.0.0.1> PUT /Users/akasurde/.ansible/tmp/ansible-local-40098215m218d/tmp2xmk0qd9 TO /Users/akasurde/.ansible/tmp/ansible-tmp-1526630002.026885-149096809747511/vmware_guest.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /Users/akasurde/.ansible/tmp/ansible-tmp-1526630002.026885-149096809747511/ /Users/akasurde/.ansible/tmp/ansible-tmp-1526630002.026885-149096809747511/vmware_guest.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/env python3 /Users/akasurde/.ansible/tmp/ansible-tmp-1526630002.026885-149096809747511/vmware_guest.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /Users/akasurde/.ansible/tmp/ansible-tmp-1526630002.026885-149096809747511/ > /dev/null 2>&1 && sleep 0'
+fatal: [localhost]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "annotation": null,
+            "cdrom": {},
+            "cluster": null,
+            "customization": {},
+            "customvalues": [],
+            "datacenter": "DC1",
+            "disk": [
+                {
+                    "autoselect_datastore": true,
+                    "size_mb": 10
+                }
+            ],
+            "esxi_hostname": null,
+            "folder": "/DC1/vm",
+            "force": false,
+            "guest_id": "rhel7_64Guest",
+            "hardware": {
+                "memory_mb": 512,
+                "num_cpus": 1
+            },
+            "hostname": "10.65.223.31",
+            "is_template": false,
+            "linked_clone": false,
+            "name": "TestDC1",
+            "name_match": "first",
+            "networks": [
+                {
+                    "name": "NetworkA",
+                    "type": "dhcp"
+                }
+            ],
+            "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "port": 443,
+            "resource_pool": null,
+            "snapshot_src": null,
+            "state": "present",
+            "template": null,
+            "username": "administrator@vsphere.local",
+            "uuid": null,
+            "validate_certs": false,
+            "wait_for_ip_address": false
+        }
+    },
+    "msg": "Failed to create a virtual machine : The object or item referred to could not be found."
+}
+	to retry, use: --limit @/Volumes/data/src/ansible/playbooks/vmware_related/new_vm.retry
+
+PLAY RECAP *********************************************************************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=1
+

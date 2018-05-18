@@ -1,0 +1,32 @@
+---
+- name: 38955
+  gather_facts: no
+  vars_files:
+    - vcenter_vars.yml
+  vars:
+    ansible_python_interpreter: "/usr/bin/env python3"
+  hosts: localhost
+  tasks:
+    - set_fact:
+        vm_name: "TestDC12"
+        datacenter: "DC1"
+
+    - name: Deploy vm in environment with two DC and same name dvpg
+      vmware_guest:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        state: present
+        folder: "/{{datacenter}}/vm"
+        name: "{{ vm_name }}"
+        guest_id: rhel7_64Guest
+        hardware:
+          num_cpus: 1
+          memory_mb: 512
+        disk:
+          - size_mb: 10
+            autoselect_datastore: True
+        networks:
+          - name: NetworkA
