@@ -29,7 +29,7 @@ def get_all_objs(content, vimtype):
     return obj
 
 
-hostname = '10.65.223.31'
+hostname = ''
 username = 'administrator@vsphere.local'
 password = 'Esxi@123$%'
 
