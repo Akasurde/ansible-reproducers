@@ -1,0 +1,10 @@
+---
+- hosts: all
+  connection: local
+  roles:
+  - role: role1
+    vars:
+     debug_var: "role1 debug out"
+  - role: role2
+    vars:
+     debug_var: "role2 debug out-------------"

@@ -1,0 +1,6 @@
+---
+- name: "Include role from role2"
+  include_role:
+    name: test
+  vars:
+    include_var: "{{debug_var}}"

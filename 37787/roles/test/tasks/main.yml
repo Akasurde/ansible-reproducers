@@ -1,0 +1,3 @@
+---
+- name: "Output from common role"
+  debug: var=include_var
