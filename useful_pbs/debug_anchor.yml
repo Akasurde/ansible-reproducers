@@ -1,0 +1,13 @@
+---
+- name: Using values nested inside dictionary
+  hosts: localhost
+  vars:
+    webapp:
+      my_version: &my_version 1.0
+      custom_version:
+        - "ToDo_App"
+        - *my_version
+  tasks:
+    - name: Using Anchor value
+      debug:
+        msg: "{{ webapp.custom_version | join('-') }}"
