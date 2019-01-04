@@ -1,0 +1,8 @@
+---
+- name: Using timestamp datatype
+  hosts: localhost
+  tasks:
+    - set_fact:
+        my_server_date: !!timestamp "2019-01-01"
+    - debug:
+        msg: "Year : {{ my_server_date.year }} Day: {{ my_server_date.day }} Month: {{ my_server_date.month }}"
