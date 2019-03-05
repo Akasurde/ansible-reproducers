@@ -6,7 +6,7 @@ import time
 
 
 def connect(hostname, username, password):
-    context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+    context = ssl._create_unverified_context()
     context.verify_mode = ssl.CERT_NONE
 
     si = SmartConnect(host=hostname, user=username, pwd=password, port=443, sslContext=context)
