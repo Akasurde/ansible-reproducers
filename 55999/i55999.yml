@@ -1,0 +1,43 @@
+---
+- name: Add a disk to already existing VM
+  gather_facts: no
+  vars_files:
+    - vcenter_vars.yml
+  hosts: localhost
+  tasks:
+    - set_fact:
+        vm_name: "debian_10_clone"
+
+    - name: "Getting information about VM {{ vm_name }}"
+      vmware_guest_disk_facts:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        name: "{{ vm_name }}"
+      register: disk_info
+
+    - set_fact:
+        disk: "{{ disk | default([]) + [{ 'datastore' : item.value.backing_datastore, 'size_kb': item.value.capacity_in_kb, 'scsi_controller': item.value.controller_bus_number, 'unit_number': item.value.unit_number }] }}"
+      with_dict: "{{ disk_info.guest_disk_facts }}"
+
+    - debug:
+        var: disk
+
+    - set_fact:
+        new_disk: "{{ disk + [{ 'datastore': 'ds_226_3', 'size_kb': '21504', 'scsi_controller': 1, 'unit_number': 0}] }}"
+
+    - debug:
+        var: new_disk
+
+    - name: "Adding new disk to existing VM {{ vm_name }}"
+      vmware_guest_disk:
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        folder: "/{{ datacenter }}/vm"
+        name: "{{ vm_name }}"
+        disk: "{{ new_disk }}"
