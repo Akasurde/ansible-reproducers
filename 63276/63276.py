@@ -2,7 +2,6 @@ from pyVim.connect import SmartConnect, Disconnect
 import ssl
 import atexit
 from pyVmomi import vim, vmodl
-import click
 
 
 def connect(hostname, username, password, port):
@@ -15,6 +14,7 @@ def connect(hostname, username, password, port):
                       port=port, sslContext=context)
     atexit.register(Disconnect, si)
     return si, si.RetrieveContent()
+
 
 def get_managed_objects_properties(content, vim_type, properties=None):
     # Get Root Folder
@@ -59,9 +59,9 @@ def get_managed_objects_properties(content, vim_type, properties=None):
 
 
 def main():
-    hostname='10.65.200.241'
-    username='administrator@vsphere.local'
-    password='Esxi@123$%'
+    hostname = '10.65.200.241'
+    username = 'administrator@vsphere.local'
+    password = 'Esxi@123$%'
     port = 443
     template_name = "TEMPLATE_2016"
     template_name = "Win2k16"
@@ -77,8 +77,8 @@ def main():
             if temp_vm_object_property.val == template_name:
                 templates.append(temp_vm_object.obj)
                 break
-        
+
     print(templates)
-    
+
 if __name__ == "__main__":
     main()
