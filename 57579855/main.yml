@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars_files:
+    - vcenter_vars.yml
+  tasks:
+  - name: Get all disks from existing VM
+    vmware_guest_disk_info:
+      validate_certs: False
+      hostname: '{{ vcenter_hostname }}'
+      username: '{{ vcenter_username }}'
+      password: '{{ vcenter_password }}'
+      datacenter: Asia-Datacenter1
+      name: VM_8046
+    register: existing_disk
+
+  - name: Get Backing datastore for desired disk id
+    set_fact:
+      disk_zero_datastore: "{{ item.value.backing_datastore }}"
+    with_dict: "{{ existing_disk.guest_disk_info }}"
+    when: item.key == '0'
+  
+  - debug:
+      msg: "{{ disk_zero_datastore }}"
+    when: disk_zero_datastore is defined
