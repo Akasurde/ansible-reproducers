@@ -1,0 +1,31 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: httpapi
+  vars:
+    datacenter_name: Asia-Datacenter1
+  vars_files:
+    - vcenter_vars.yml
+  tasks:
+  - name: Get all Datacenter
+    vmware_core_info:
+      object_type: datacenter
+    register: all_dcs
+
+  - name: Get managed object id for datacenter
+    set_fact:
+      datacenter_managed_object_id: "{{ item.datacenter }}"
+    loop: "{{ all_dcs.datacenter.value | json_query(dc_query) }}"
+    vars:
+      dc_query: "[?name == `{{ datacenter_name }}` ]"
+
+  - name: Display MoID for datacenter
+    debug:
+      msg: "{{ datacenter_managed_object_id }}"
+
+  - name: Get all ESXi information
+    vmware_core_info:
+      object_type: host
+      filters:
+        - datacenters: "{{ datacenter_managed_object_id }}"
+    register: esxi_list

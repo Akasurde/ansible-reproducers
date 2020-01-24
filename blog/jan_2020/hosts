@@ -1,0 +1,10 @@
+[vmware]
+node01 ansible_host=10.65.200.211
+
+[vmware:vars]
+ansible_network_os=vmware
+ansible_user=administrator@vsphere.local
+ansible_password=Esxi@123$%
+ansible_httpapi_validate_certs=False
+ansible_httpapi_use_ssl=Yes
+ansible_httpapi_password=Esxi@123$%
