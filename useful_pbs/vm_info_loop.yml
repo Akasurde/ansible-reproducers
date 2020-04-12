@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  gather_facts: no
+  collections:
+    - community.general
+    - community.vmware
+  vars_files:
+    - vcenter_vars.yml
+  tasks:
+    - name: Gather all VMs information
+      vmware_vm_info:
+        hostname: '{{ vcenter_hostname }}'
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        validate_certs: no
+      register: vm_facts
+      delegate_to: localhost
+
+    - debug:
+        msg: "{{ item.ip_address }}"
+      loop: "{{ vm_facts.virtual_machines }}"
+      when:
+        - item.guest_name | regex_search('^Win')

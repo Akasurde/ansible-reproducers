@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: no
+  collections:
+    - community.general
+    - community.vmware
+  vars_files:
+    - vcenter_vars.yml
+  tasks:
+    - name: Read file
+      set_fact:
+        vm_facts: "{{ lookup('file', 'vm_info.json') | from_json}}"
+

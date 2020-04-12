@@ -1,0 +1,329 @@
+{
+    "virtual_machines": [{
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/Prod",
+            "guest_fullname": "Debian GNU/Linux 10 (64-bit)",
+            "guest_name": "debian_10_clone",
+            "ip_address": "192.168.122.15",
+            "mac_address": [
+                "00:50:56:97:2c:3d"
+            ],
+            "power_state": "poweredOn",
+            "tags": [],
+            "uuid": "42170ec3-c667-e94f-95eb-584fc55833c2",
+            "vm_network": {
+                "00:50:56:97:2c:3d": {
+                    "ipv4": [
+                        "192.168.122.15"
+                    ],
+                    "ipv6": [
+                        "fe80::250:56ff:fe97:2c3d"
+                    ]
+                }
+            }
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/Prod",
+            "guest_fullname": "Microsoft Windows Server 2008 R2 (64-bit)",
+            "guest_name": "Win2k16",
+            "ip_address": "192.168.122.36",
+            "mac_address": [
+                "00:50:56:ac:d5:ab"
+            ],
+            "power_state": "poweredOn",
+            "tags": [],
+            "uuid": "4217531d-f175-cc54-812c-61d3ccfb04db",
+            "vm_network": {
+                "00:50:56:ac:d5:ab": {
+                    "ipv4": [
+                        "192.168.122.36"
+                    ],
+                    "ipv6": [
+                        "fe80::51b6:15b6:44ad:9c02"
+                    ]
+                }
+            }
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Debian GNU/Linux 10 (64-bit)",
+            "guest_name": "my_clone_deb_1",
+            "ip_address": "",
+            "mac_address": [
+                "00:50:56:89:b7:5f",
+                "00:50:56:89:39:22",
+                "00:50:56:89:21:a2",
+                "00:50:56:b0:66:14"
+            ],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4209078d-ae20-3a70-0a12-07b411793e3e",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Red Hat Enterprise Linux 7 (64-bit)",
+            "guest_name": "test01",
+            "ip_address": "",
+            "mac_address": [
+                "00:50:56:44:55:66",
+                "00:50:56:44:55:76"
+            ],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4217bea2-be72-da06-8e8f-091ecdea87cd",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Red Hat Enterprise Linux 7 (64-bit)",
+            "guest_name": "test_01",
+            "ip_address": "",
+            "mac_address": [
+                "00:50:56:89:1b:a8"
+            ],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4217f4be-42dd-566b-ff33-a1bc0f72407e",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Red Hat Enterprise Linux 7 (64-bit)",
+            "guest_name": "VM_124",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "42098783-2569-6a55-7fe0-2f152ffcaaf0",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "CentOS 4/5 or later (64-bit)",
+            "guest_name": "vApp-Test",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "42175a97-830a-a82b-e7e5-0b3a677fbe7f",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Red Hat Enterprise Linux 7 (64-bit)",
+            "guest_name": "VM_8046",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "421744c0-8883-e9b1-e3da-be7621e569ba",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "CentOS 4/5 or later (64-bit)",
+            "guest_name": "vm_0001",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "42289d88-f388-06dd-6c6a-a9c8c255df7b",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Red Hat Enterprise Linux 7 (64-bit)",
+            "guest_name": "VM_8046_clone",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "42170b74-2c8a-b7d7-26a7-b7017190e107",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Red Hat Enterprise Linux 7 (64-bit)",
+            "guest_name": "vmware_test",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4209db2f-279c-c5d4-1ab7-f8e9261100b5",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Debian GNU/Linux 10 (64-bit)",
+            "guest_name": "50923_vm_2",
+            "ip_address": "",
+            "mac_address": [
+                "00:50:56:b0:a0:40",
+                "00:50:56:b0:ac:d4"
+            ],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4209300a-120a-16d6-fc6e-9c2a06cb1c04",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "CentOS 4/5 or later (64-bit)",
+            "guest_name": "50923_vm_2 (1)",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4209dbf1-dea3-a1c3-a6fb-6db1c8b54d44",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "CentOS 4/5 or later (64-bit)",
+            "guest_name": "my_clone_deb_iii",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4209e5f3-f10b-1364-5814-846a6890c109",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": null,
+            "guest_name": "%2fvmfs%2fvolumes%2f5b3c5b0f-571a6a7b-bbde-5254009540b6%2frhel7%2frhel7.vmx",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": null,
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Other 3.x or later Linux (64-bit)",
+            "guest_name": "alpine3.7.2",
+            "ip_address": "",
+            "mac_address": [
+                "00:50:56:8a:a5:67"
+            ],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "420a7f8d-5c56-0734-c0ae-98efb95e3547",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Debian GNU/Linux 10 (64-bit)",
+            "guest_name": "debian10",
+            "ip_address": "",
+            "mac_address": [],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "420aac7c-0821-f247-ea33-db961cce7482",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Ubuntu Linux (64-bit)",
+            "guest_name": "ubuntu_t",
+            "ip_address": "",
+            "mac_address": [
+                "00:50:56:87:a5:9a"
+            ],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "4207072c-edd8-3bd5-64dc-903fd3a0db04",
+            "vm_network": {}
+        },
+        {
+            "attributes": {},
+            "cluster": "Asia-Cluster1",
+            "datacenter": "Asia-Datacenter1",
+            "esxi_hostname": "10.65.201.113",
+            "folder": "/Asia-Datacenter1/vm/old",
+            "guest_fullname": "Microsoft Windows Server 2008 R2 (64-bit)",
+            "guest_name": "sample_0005",
+            "ip_address": "",
+            "mac_address": [
+                "00:50:56:97:62:21"
+            ],
+            "power_state": "poweredOff",
+            "tags": [],
+            "uuid": "42179acb-8567-68b1-a7f1-1328be7d2668",
+            "vm_network": {}
+        }
+    ]
+}
