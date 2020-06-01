@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - set_fact:
+        api_groups: "{{ lookup('mylookup') }}"
+    #- my_debug:
