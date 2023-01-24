@@ -1,0 +1,5 @@
+---
+- hosts: taskhost
+  tasks:
+    - debug:
+        msg: "{{ extra_variable | default('') }}"

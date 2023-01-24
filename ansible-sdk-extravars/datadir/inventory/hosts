@@ -1,0 +1,14 @@
+[taskhosts]
+h1
+h2
+
+[taskhosts:vars]
+ansible_connection=local
+ansible_pipelining=true
+
+[taskhost]
+h1
+
+[taskhost:vars]
+ansible_connection=local
+ansible_pipelining=true
