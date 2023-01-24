@@ -1,0 +1,6 @@
+[taskhost]
+h1
+
+[taskhost:vars]
+ansible_connection=local
+ansible_pipelining=true

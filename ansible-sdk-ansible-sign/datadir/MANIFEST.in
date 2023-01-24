@@ -1,0 +1,3 @@
+recursive-include inventory *
+recursive-include project *.yml
+recursive-exclude env *

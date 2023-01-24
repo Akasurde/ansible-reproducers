@@ -1,0 +1,3 @@
+70feb9a7c3eb8af59452f27579ae6ba3cd493c67cff5534e70c4873b061351d7  MANIFEST.in
+a15e30ba6058124c98f628faed8b92b275f27ec44b75088eed6ae787fdacf526  inventory/hosts
+f50caddf05b0a89c4c2272fef7947aab8b2837a59307d4cf26b4f3bf880ce64c  project/ansible_sign_demo.yml
