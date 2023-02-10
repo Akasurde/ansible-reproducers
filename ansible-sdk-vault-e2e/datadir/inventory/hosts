@@ -1,0 +1,2 @@
+[db]
+kvm-06-guest20.hv2.lab.eng.bos.redhat.com ansible_user=root
