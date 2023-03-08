@@ -1,0 +1,6 @@
+[hg]
+h1
+
+[hg:vars]
+ansible_connection=local
+ansible_pipelining=true

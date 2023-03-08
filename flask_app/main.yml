@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  tasks:
+    - community.custom.sqlite:
+        dbpath: '/home/vagrant/flask_app/database.db'
+        tablename: 'hosts'
+        os: 'linux'
+      register: linux_password
+      no_log: True
+
+    - debug:
+        msg: "{{ linux_password.message | to_yaml }}"
+
+    - add_host:
+        hostname: h2
+        ansible_ssh_password: "{{ linux_password.message | replace('\\n', '\n') }}"
+        ansible_host: 192.168.56.2
+        ansible_user: db_user
+      no_log: True
+
+- hosts: h2
+  tasks:
+    - debug:
+        msg: "Hello World"
